@@ -4,11 +4,10 @@ from ANNarchy import *
 
 def get_converted_data_to_spikes():
 	ts_data = get_encoded_data()
-	spike_times = [[[0 for i in range(len(ts_data[0][0]))] for j in range(len(ts_data[0])) ]for k in range(len(ts_data))]
-	for i in range(len(ts_data)):
-		for j in range(len(ts_data[0])):
-			for k in range(len(ts_data[0][0])):
-				spike_times[i][j][k] = 1000/max(ts_data[i][j][k] , 1e-6)+ j*1000
+	spike_times = [[[1000/max(ts_data[k][j][i] , 1e-6)+ j*1000
+					for i in range(len(ts_data[0][0]))]
+						for j in range(len(ts_data[0])) ]
+							for k in range(len(ts_data))]
 	return spike_times
 
 def compile_model():
@@ -16,7 +15,7 @@ def compile_model():
 	inputs = SpikeSourceArray(spike_times=spike_times[0])
 	m = Monitor(inputs, 'spike')
 	compile()
-	return m 
+	return m
 
 m = compile_model()
 simulate(10000.)
