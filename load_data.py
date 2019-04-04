@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def load_data():
     types = ["als", "control", "park", "hunt"]
     numbers = [13, 16, 15, 20]
@@ -12,7 +11,6 @@ def load_data():
             current_type = types[i]
             ts_data.append(np.loadtxt("data/" + current_type + str(j) + ".ts"))
             type_data.append(current_type)
-    print(ts_data[0].shape)
     return np.array(ts_data), np.array(type_data)
 
 
