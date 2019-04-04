@@ -40,7 +40,7 @@ def get_encoded_data():
 	ts_data = fix_size_of_data(ts_data)
 	ts_data = normalize(ts_data)
 	return ts_data
-	encoder = get_encoder(ts_data)
-	return encoder.predict(ts_data)
+	# encoder = get_encoder(ts_data)
+	# return encoder.predict(ts_data)
 
-get_encoded_data()
+# get_encoded_data()

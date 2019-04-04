@@ -14,4 +14,4 @@ def load_data():
     return np.array(ts_data), np.array(type_data)
 
 
-ts_data, type_data = load_data()
+# ts_data, type_data = load_data()
